@@ -1,4 +1,4 @@
-part of '../../bin/main.dart';
+part of '../main.dart';
 
 /// Contains information about requested [Loan]
 /// [amount] requested for the loan
@@ -16,7 +16,17 @@ abstract class Approver {
   final String name;
   Approver(this.name);
 
+  /// Set/Get the next handler in the chain
   Approver? successor;
+
+  /// Optionally let superclass to take care of invoking the next int the chain
+  handleSuccessor(Loan loan) {
+    if (successor != null) {
+      successor!.processRequest(loan);
+    }
+  }
+
+  /// Subclasses should implement it
   processRequest(Loan loan);
 }
 
@@ -27,8 +37,8 @@ class Clerk extends Approver {
   processRequest(Loan loan) {
     if (loan.amount < 25000) {
       stdout.writeln('$name approved request #${loan.number}');
-    } else if (successor != null) {
-      successor!.processRequest(loan);
+    } else {
+      super.handleSuccessor(loan);
     }
   }
 }
@@ -41,8 +51,8 @@ class AssistantManager extends Approver {
     if (loan.amount < 45000) {
       stdout.writeln(
           '$name, our assistant manager, approved request #${loan.number}');
-    } else if (successor != null) {
-      successor!.processRequest(loan);
+    } else {
+      super.handleSuccessor(loan);
     }
   }
 }
@@ -57,7 +67,7 @@ class Manager extends Approver {
     } else if (successor != null) {
       successor!.processRequest(loan);
     } else {
-      stdout.writeln('Request #${loan.number} requires an executive meeting!');
+      super.handleSuccessor(loan);
     }
   }
 }
