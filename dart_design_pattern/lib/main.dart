@@ -2,6 +2,7 @@ import 'dart:io';
 
 part 'behavioral/chain_of_responsibility.dart';
 part 'behavioral/command.dart';
+part 'behavioral/interpreter.dart';
 
 void client(List<String> arguments) {
   exitCode = 0;
@@ -29,8 +30,8 @@ void client(List<String> arguments) {
         Command.invoke();
         break;
       case '3':
-        stdout.writeln('\x1B[36mCommand - Behavioral Pattern\x1B[0m\n');
-        Command.invoke();
+        stdout.writeln('\x1B[36mInterpreter - Behavioral Pattern\x1B[0m\n');
+        Interpreter.invoke();
         break;
     }
     if (option != 'q') stdout.writeln("============\n\n");
