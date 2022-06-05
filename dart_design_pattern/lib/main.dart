@@ -3,6 +3,7 @@ import 'dart:io';
 part 'behavioral/chain_of_responsibility.dart';
 part 'behavioral/command.dart';
 part 'behavioral/interpreter.dart';
+part 'behavioral/iterator.dart';
 
 void client(List<String> arguments) {
   exitCode = 0;
@@ -11,7 +12,8 @@ void client(List<String> arguments) {
     stdout.writeln('\x1B[33mRun a design pattern:\x1B[0m');
     stdout.writeln("[1]. Behaviour > Chain of Responsibility");
     stdout.writeln("[2]. Behaviour > Command");
-    stdout.writeln("[3]. Behaviour > Command");
+    stdout.writeln("[3]. Behaviour > Interpreter");
+    stdout.writeln("[4]. Behaviour > Iterator");
     stdout.writeln("[q]. Exit");
 
     option = stdin.readLineSync();
@@ -32,6 +34,10 @@ void client(List<String> arguments) {
       case '3':
         stdout.writeln('\x1B[36mInterpreter - Behavioral Pattern\x1B[0m\n');
         Interpreter.invoke();
+        break;
+      case '4':
+        stdout.writeln('\x1B[36mIterator - Behavioral Pattern\x1B[0m\n');
+        Iterator.invoke();
         break;
     }
     if (option != 'q') stdout.writeln("============\n\n");
