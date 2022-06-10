@@ -4,6 +4,7 @@ part 'behavioral/chain_of_responsibility.dart';
 part 'behavioral/command.dart';
 part 'behavioral/interpreter.dart';
 part 'behavioral/iterator.dart';
+part 'behavioral/mediator.dart';
 
 void client(List<String> arguments) {
   exitCode = 0;
@@ -14,6 +15,7 @@ void client(List<String> arguments) {
     stdout.writeln("[2]. Behaviour > Command");
     stdout.writeln("[3]. Behaviour > Interpreter");
     stdout.writeln("[4]. Behaviour > Iterator");
+    stdout.writeln("[5]. Behaviour > Mediator");
     stdout.writeln("[q]. Exit");
 
     option = stdin.readLineSync();
@@ -38,6 +40,10 @@ void client(List<String> arguments) {
       case '4':
         stdout.writeln('\x1B[36mIterator - Behavioral Pattern\x1B[0m\n');
         Iterator.invoke();
+        break;
+      case '5':
+        stdout.writeln('\x1B[36mMediator - Behavioral Pattern\x1B[0m\n');
+        Mediator.invoke();
         break;
     }
     if (option != 'q') stdout.writeln("============\n\n");
