@@ -6,7 +6,7 @@ Welcome to my version of design patterns in Dart.
 
 # How to run it #
 
-`dart run bin/main.dart`
+`dart run bin/program.dart`
 
 
 # References #
@@ -22,3 +22,5 @@ Welcome to my version of design patterns in Dart.
 - https://medium.com/xp-inc/design-patterns-34257406b136
 
 - https://www.dofactory.com/net/design-patterns
+
+
