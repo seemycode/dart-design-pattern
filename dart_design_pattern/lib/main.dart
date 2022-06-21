@@ -5,6 +5,7 @@ part 'behavioral/command.dart';
 part 'behavioral/interpreter.dart';
 part 'behavioral/iterator.dart';
 part 'behavioral/mediator.dart';
+part 'behavioral/memento.dart';
 
 void client(List<String> arguments) {
   exitCode = 0;
@@ -44,6 +45,10 @@ void client(List<String> arguments) {
       case '5':
         stdout.writeln('\x1B[36mMediator - Behavioral Pattern\x1B[0m\n');
         Mediator.invoke();
+        break;
+      case '6':
+        stdout.writeln('\x1B[36mMemento - Behavioral Pattern\x1B[0m\n');
+        Memento.invoke();
         break;
     }
     if (option != 'q') stdout.writeln("============\n\n");
