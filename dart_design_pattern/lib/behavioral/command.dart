@@ -72,12 +72,12 @@ class SmartTVOffCommand implements IoTCommand {
   }
 }
 
+/// Just a optional class to capture device name
 class IoTDevice {
   String name;
   IoTDevice({required this.name});
 }
 
-/// Just a optional class to capture device name
 class RemoteControl extends IoTDevice {
   final commands = <IoTCommand>[];
 
