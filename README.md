@@ -2,7 +2,7 @@
 
 Welcome to my version of design patterns in Dart.
 
-*Attention: This is a work in progress*
+*This is a work in progress*
 
 # How to run it #
 
